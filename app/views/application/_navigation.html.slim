@@ -1,13 +1,9 @@
 nav.top-bar( data-topbar )
 
   ul.title-area
-    li.name
-      = link_to root_path
-        = image_tag 'logo.png', width: '100px'
     li.toggle-topbar
       a(href="#")
         i.fi-list
 
   section.top-bar-section
-    = render "navigation_main"
     = render "navigation_user"
