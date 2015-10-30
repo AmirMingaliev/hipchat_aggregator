@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    current_user.rooms.build if current_user.rooms.blank?
   end
 
   def update

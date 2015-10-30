@@ -1,8 +1,11 @@
 .row
   .columns
     - if user_signed_in?
-      = simple_form_for(current_user, url: update_settings_path) do |f|
-       = f.input :ip
-       = f.simple_fields_for :rooms, f.object.rooms || f.object.rooms.build do |ff|
-        = ff.input :name
-       = f.submit "Submit", class: "button"
+      = simple_nested_form_for(current_user, url: update_settings_path) do |f|
+        = f.input :ip
+        = f.simple_fields_for :rooms, current_user.rooms do |ff|
+          = ff.input :name, collection: current_user.available_rooms
+          = ff.link_to_remove "Remove"
+        = f.link_to_add "Add", :rooms
+        br
+        = f.submit "Submit", class: "button"

@@ -21,6 +21,7 @@ gem "active_link_to"
 gem "metamagic"
 gem "simple_form"
 gem "slim"
+gem "nested_form"
 
 # all other gems
 gem "decent_exposure"
@@ -39,6 +40,7 @@ gem "rollbar"
 gem "seedbank"
 gem "stackprof"
 gem "faraday"
+gem "faraday_middleware"
 
 group :staging, :production do
   gem "newrelic_rpm"

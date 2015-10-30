@@ -3,6 +3,7 @@ class User
     USER_PARAMS = %i(
       full_name
       email
+      hipchat_token
       password
       password_confirmation
     )
