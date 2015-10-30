@@ -3,18 +3,14 @@ defaults: &defaults
   encoding: unicode
   min_messages: warning
   timeout: 5000
-  username: postgres
-  password: postgres
-  host: 192.168.99.100
-  port: 5432
   pool: <%= [ENV.fetch("MAX_THREADS", 5), ENV.fetch("DB_POOL", 5)].max %>
 
 development:
-  database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_dev
+  database: application_dev
   <<: *defaults
 
 test:
-  database: <%= ENV.fetch("DATABASE_NAME", File.basename(Rails.root)) %>_test
+  database: application_test
   <<: *defaults
 
 production: &deploy
