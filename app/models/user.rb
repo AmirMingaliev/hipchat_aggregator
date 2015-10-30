@@ -18,13 +18,13 @@ class User < ActiveRecord::Base
 
   def available_rooms
     conn = Faraday.new(url: "https://api.hipchat.com") do |faraday|
-      faraday.request  :url_encoded
+      faraday.request :url_encoded
       faraday.response :json
-      faraday.adapter  Faraday.default_adapter
+      faraday.adapter Faraday.default_adapter
     end
 
     response = conn.get("/v2/room?auth_token=#{hipchat_token}")
 
-    response.body['items'].map { |e| e["name"] }
+    response.body["items"].map { |e| e["name"] }
   end
 end
