@@ -1,4 +1,6 @@
 .row
   .columns
-    h2
-      = title("Home")
+    - if user_signed_in?
+      = simple_form_for(current_user) do |f|
+       = f.input :ip
+       = f.association :rooms
