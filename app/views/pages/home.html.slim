@@ -1,6 +1,8 @@
 .row
   .columns
     - if user_signed_in?
-      = simple_form_for(current_user) do |f|
+      = simple_form_for(current_user, url: update_settings_path) do |f|
        = f.input :ip
-       = f.association :rooms
+       = f.simple_fields_for :rooms, f.object.rooms || f.object.rooms.build do |ff|
+        = ff.input :name
+       = f.submit "Submit", class: "button"

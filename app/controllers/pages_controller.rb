@@ -3,12 +3,13 @@ class PagesController < ApplicationController
   end
 
   def update
-    current_user
+    current_user.update(user_params)
+    redirect_to :back
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:ip, room_attributes: %i(name))
+    params.require(:user).permit(:ip, rooms_attributes: %i(id name))
   end
 end
