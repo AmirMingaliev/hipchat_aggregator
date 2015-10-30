@@ -10,6 +10,6 @@ class PagesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:ip, rooms_attributes: %i(id name))
+    params.require(:user).permit(:ip, rooms_attributes: [:id, :name, :_destroy])
   end
 end
